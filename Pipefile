@@ -1,0 +1,24 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+
+ipywidgets = "*"
+jupyter-tensorboard = "*"
+jupyterlab-git = "*"
+pandas = "*"
+numpy="*"
+plotly = "*"
+scikit-image = "*"
+scikit-learn = "*"
+tensorboard = "<2.0"
+matplotlib="*"
+imutils="*"
+numpy="*"
+opencv-python="*"
+opencv-contrib-python="*"
+
+[requires]
+python_version = "3.8"

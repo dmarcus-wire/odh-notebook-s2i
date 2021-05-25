@@ -1,0 +1,16 @@
+#!/bin/bash -e
+#
+# S2I run script for the 'naps-cv-notebook' image.
+# The run script executes the server that runs your application.
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+#!/bin/bash
+
+set -eo pipefail
+
+# Execute the run script from the customised builder.
+
+exec /opt/app-root/builder/run
