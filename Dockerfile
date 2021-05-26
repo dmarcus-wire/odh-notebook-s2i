@@ -1,5 +1,5 @@
 # pull the s2i-minimal-py38-notebook image
-FROM minimal-gpu
+FROM minimal-gpu:py3.8-cuda-11.0.3
 # switch root
 USER root
 # install mesa-libGL
