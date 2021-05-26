@@ -1,1 +1,15 @@
 # pipenv install --requirements requirements.txt
+ipywidgets
+jupyter-tensorboard
+jupyterlab-git
+pandas
+numpy
+plotly
+scikit-image
+scikit-learn
+tensorboard
+matplotlib
+imutils
+numpy
+opencv-python
+opencv-contrib-python
