@@ -1,5 +1,5 @@
 # pull the s2i-minimal-py38-notebook image
-FROM quay.io/thoth-station/s2i-minimal-py38-notebook:latest
+FROM minimal-gpu
 # set labels
 LABEL name="s2i-opencv-py38-notebook:latest" \
       summary="Minimal Jupyter Notebook Source-to-Image for Python 3.8 OpenCV applications." \
