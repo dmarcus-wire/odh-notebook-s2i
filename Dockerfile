@@ -1,4 +1,5 @@
 # pull the s2i-minimal-py38-notebook image
+# this name:tag comes from the ODH deployment (specifically, the cuda-11.0.3 overlay)
 FROM minimal-gpu:py3.8-cuda-11.0.3
 # switch root
 USER root
@@ -8,8 +9,8 @@ RUN yum install -y mesa-libGL
 COPY .s2i/bin /tmp/scripts
 # Copying whole project into source code
 COPY . /tmp/src
-# Change file ownership to the assemble user. Builder image must support chown command.
-RUN chown -R 1001:0 /tmp/scripts /tmp/src
+# -R option to recursively change the ownership:group of an entire directory tree to the assemble user. Builder image must support chown command.
+RUN chown -R 1001 /tmp/scripts /tmp/src
 USER 1001
 # as user 1001, runs the assemble
 RUN /tmp/scripts/assemble
