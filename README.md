@@ -18,7 +18,14 @@ or cli route:
 `oc add label...`
 
 
-
+1. assign to worker node
+1. start container git clone
+1. create container git clone
+1. get container image
+1. add eth0
+1. build 
+1. start container manage-dockerfile
+1. 
 ...
 Installed products updated.
 
