@@ -5,13 +5,17 @@ FROM minimal-gpu:py3.8-cuda-11.0.3
 USER root
 # install mesa-libGL
 RUN yum install -y mesa-libGL
-# Copying in override assemble (pipfile install, extension, plugins, etc.)/run scripts
-COPY .s2i/bin /tmp/scripts
-# Copying whole project into source code
+# copy source to /tmp
 COPY . /tmp/src
-# -R option to recursively change the ownership:group of an entire directory tree to the assemble user. Builder image must support chown command.
-RUN chown -R 1001:0 /tmp/scripts /tmp/src
-RUN /tmp/scripts/assemble
+# recursively set permissions
+RUN chown -R 1001 /tmp/src && \
+    chgrp -R 0 /tmp/src && \
+    chmod -R g+w /tmp/src && \
+    mv .s2i/bin /tmp/scripts
+# switch to user 1001
 USER 1001
-# will only run if local, if in ocp runs cmd from the spawner
+# run the assemble script
+RUN /tmp/scripts/assemble
+# run command on if local, else ocp runs from jupyter spawner
 CMD /tmp/scripts/run
+
